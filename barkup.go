@@ -15,18 +15,18 @@ type Exporter interface {
 
 // Error can ship a cmd output as well as the start interface. Useful for understanding why a system command (exec.Command) failed
 type Error struct {
-	err       error
+	Err       error
 	CmdOutput string
 }
 
 func (e Error) Error() string {
-	return e.err.Error()
+	return e.Err.Error()
 }
 
 func makeErr(err error, out string) *Error {
 	if err != nil {
 		return &Error{
-			err:       err,
+			Err:       err,
 			CmdOutput: out,
 		}
 	}
